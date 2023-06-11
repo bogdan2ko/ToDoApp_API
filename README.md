@@ -1,56 +1,60 @@
 # ToDoApp
 
-ToDoApp - это приложение для управления задачами. Он предоставляет API для создания, чтения, обновления и удаления задач.
+## Description
+ToDoApp is an application for managing tasks (To-Do) using API and Docker containerization.
 
-## Установка и запуск
+The application allows users to create, view, update, and delete tasks. It provides a user-friendly interface for managing tasks, making it easy to add new tasks, track their status, and prioritize them.
 
-1. Установите зависимости, указанные в файле `requirements.txt`, выполнив команду:
-```
-pip install -r requirements.txt
-```
-2. Запустите приложение с помощью следующей команды:
-```
-python manage.py runserver
-```
+## Installation and Setup
 
-## Использование API
+Requirements
+Docker: Install Docker on your machine.
 
-### Получение списка задач (Read)
+## Installation Steps
+1. Clone the ToDoApp repository to your local machine
+```
+$ git clone https://github.com/your-username/ToDoApp.git
+```
+2. Navigate to the project directory:
+```
+$ cd ToDoApp
+```
+3. Build and start the Docker containers using the following command:
+```
+$ docker-compose up -d
+```
+This command will build and start the application and database containers.
+
+4. The ToDoApp will be accessible at http://localhost:8000.
+
+
+## Using the API
+
+### Getting a list of tasks (Read)
 URL: `/api/todo/`
+Method: GET
+Returned data: List of all tasks
 
-Метод: GET
-
-Возвращаемые данные: Список всех задач
-
-### Получение деталей задачи (Update)
+### Get task details (Update)
 URL: `/api/todo/<id>/`
+Method: GET
+URL parameters:
+- `<id>`: Task ID
+Returned data: Details of the task with the specified ID
 
-Метод: GET
-
-Параметры URL:
-- `<id>`: Идентификатор задачи
-
-Возвращаемые данные: Детали задачи с указанным идентификатором
-
-### Создание новой задачи (Create)
+### Create a new task (Create)
 URL: `/api/todo/create/`
+Method: POST
+Request parameters:
+- Task fields in JSON format
+Returned data: Created task
 
-Метод: POST
-
-Параметры запроса:
-- Поля задачи в формате JSON
-
-Возвращаемые данные: Созданная задача
-
-### Удаление задачи (Delete)
+### Deleting a task (Delete)
 URL: `/api/todo/<id>/delete/`
-
-Метод: DELETE
-
-Параметры URL:
-- `<id>`: Идентификатор задачи
-
-Возвращаемые данные: Статус удаления задачи
+Method: DELETE
+URL parameters:
+- `<id>`: Task ID
+Returned data: Task deletion status
 
 
 
